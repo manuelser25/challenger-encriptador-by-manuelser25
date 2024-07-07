@@ -1,0 +1,21 @@
+
+:root {
+    --color-primaria: #000000;
+    --color-secundaria: #F6F6F6;
+    --color-terciaria: #22D4FD;
+    --color-hover: #272727;
+}
+body{
+    background-color: #F3F5FC;
+}
+
+
+.footer{
+    color:var(--color-primaria);
+    background-color: var(--color-terciaria);
+    padding: 24px;
+    text-align: center;
+    font-family: var(--fuente-krona);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
