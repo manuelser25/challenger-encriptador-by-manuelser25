@@ -9,7 +9,9 @@
 }
 body{
     background-color: var(--color-secundario);
+    font-family: var(--fuente-Inter);
 }
+
 
 .footer{
     color:var(--color-primario);
