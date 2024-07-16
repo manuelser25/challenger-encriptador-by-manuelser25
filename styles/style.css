@@ -8,10 +8,27 @@
     --fuente-Inter: 'Inter', sans-serif;
 }
 body{
+    box-sizing: border-box;
     background-color: var(--color-secundario);
     font-family: var(--fuente-Inter);
 }
 
+.header{
+    padding: 2% 0% 0% 2%;
+}
+
+.header__menu{
+    display: flex;
+    gap: 72px;
+}
+.header__menu__link{
+    font-family: var(--fuente-Inter);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-terciario);
+    text-decoration: none;
+
+}
 
 .footer{
     color:var(--color-primario);
