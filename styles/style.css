@@ -195,7 +195,7 @@ textarea {
 /* Área de texto de salida */
 #texto_encriptado {
     font-size: 24px;
-    background-color: white;
+    background-color: var(--color-secundario);
     padding: 20px;
     width: 100%;
     height: 100%;
@@ -221,5 +221,5 @@ footer {
     text-align: center;
     padding: .07rem;
     background-color:var(--color-terciario);
-    color: white;
+    color: var(--color-secundario);
 }
