@@ -1,9 +1,11 @@
+/*Fuente predeterminada*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
+/* Variables*/
 :root {
     --color-primario: #0A3871; 
     --color-secundario: #F3F5FC;
     --color-terciario: #22D4FD;
+    --color-cuaternario: #495057;
     --color-hover: #272727;
     --fuente-Inter: 'Inter', sans-serif;
 }
@@ -11,31 +13,213 @@ body{
     box-sizing: border-box;
     background-color: var(--color-secundario);
     font-family: var(--fuente-Inter);
+    width: 1800px;
+    height: 1024px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*Logo*/
+header{
+    text-align: left;
+    margin-bottom: 2rem;
+}
+.logo{
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    width: 120px;
+    height: 48px;
 }
 
-.header{
-    padding: 2% 0% 0% 2%;
-}
-
-.header__menu{
+main{
     display: flex;
-    gap: 72px;
+    justify-content: space-between;
+    gap: 2rem;
 }
-.header__menu__link{
-    font-family: var(--fuente-Inter);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-terciario);
-    text-decoration: none;
-
+.ingresar_texto{
+    position: absolute;
+    left: 240px;
+    top: 168px;
+    width: 577px;
+    height: 48px;
+}
+.mostrar_texto{
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    width: 400px;
+    height: 944px;  
 }
 
-.footer{
-    color:var(--color-primario);
-    background-color: var(--color-terciario);
-    padding: 24px;
+textarea {
+    width: 90%;
+    height: 700px;
+    padding: 1rem;
+    border: none;
+    border-radius: 48px;
+    background-color: transparent;
+    resize: none;
+    margin-bottom: 1rem;
+    font-size: 2rem;     
+}
+#texto_entrada{
+    position: absolute;
+    left: 240px;
+    top: 168px;
+    width: 680px;
+    height: 288px;
+    font-size: 32px;
+}
+#texto_entrada::placeholder {
+    color: var(--color-primario);
+    font-size: 32px;
+    font-weight: regular;
+}
+
+.mensaje_usuario{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+.icono_exc{
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    position: absolute;
+    left: 250px;
+    top: 862px;
+}
+.mensaje_usuario p {
+    position: absolute;
+    left: 280px;
+    top: 851px;
+    width: 500px;
+    height: 18px;
+    font-size: 12px;
+    color: var(--color-cuaternario);
+}
+.botones {
+    position: absolute;
+    left: 240px;
+    top: 885px;
+    width: 680px;
+    height: 67px;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+#boton_encriptar, #boton_desencriptar {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+.boton_deshabilitado {
+    padding: 0rem 1rem;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: background-color 0.3s ease, transform 0.1s ease, opacity 0.3s ease;
+    flex: 1%;
+    background-color: #D8DFE8;
+    color: var(--color-primario);    
+}
+.boton_deshabilitado.apagado {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Efecto hover solo para botones habilitados */
+.boton_deshabilitado:not(.apagado):hover {
+    background-color: var(--color-primario);
+    color: #D8DFE8; 
+    transform: scale(1.17);    
+}
+
+/* Efecto al hacer clic solo para botones habilitados */
+.boton_deshabilitado:not(.apagado):active {
+    transform: scale(0.95);
+}
+
+/* Estilos para el contenedor de resultados */
+#textoResultado {
+    background-color: white;
+    border-radius: 24px;
     text-align: center;
-    font-family: var(--fuente-Inter);
-    font-size: 1.5rem;
-    font-weight: 400;
+    box-shadow: 24px 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    width: 400px;
+    height: 944px;
+}
+
+/* Estilos para la imagen del muñeco */
+#imagenMuneco {
+    position: absolute;
+    right: 40px;
+    top: 283px;
+    width: 336px;
+    height: 304px;
+}
+
+/* Estilos para el texto de "no mensaje" */
+#textoSinEncriptar {
+    font-size: 2rem;
+    font-weight: bold;
+    position: absolute;
+    right: 40px;
+    top: 619px;
+    width: 336px;
+    height: 122px;
+}
+
+/* Estilos para el texto de instrucción */
+#instruccionesUsuario {  
+    color: #495057;
+    position: absolute;
+    right: 40px;
+    top: 800px;
+    width: 336px;
+    height: 48px; 
+}
+
+/* Ocultar inicialmente el área de texto de salida y el botón de copiar */
+#texto_encriptado, #botonCopiarTexto {
+    display: none;
+}
+
+/* Área de texto de salida */
+#texto_encriptado {
+    font-size: 24px;
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Botón para copiar el texto de salida */
+#botonCopiarTexto {
+    position: absolute;
+    right: 40px;
+    top: 885px;
+    width: 336px;
+    height: 67px;
+    font-size: 16px;
+}
+
+/*Pie de pagina*/
+footer {
+    position: absolute;
+    left: 0px;
+    top: 1150px;
+    width: 1780px;
+    text-align: center;
+    padding: .07rem;
+    background-color:var(--color-terciario);
+    color: white;
 }
