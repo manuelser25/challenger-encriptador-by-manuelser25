@@ -233,3 +233,27 @@ footer {
     background-color:var(--color-terciario);
     color: var(--color-secundario);
 }
+
+@media (max-width: 1200px) {
+
+    .header{
+        padding: 5% 2%;  
+    }
+    .botones{
+        justify-content: center;
+    }            
+    
+    .ingresar_texto{
+        flex-direction: column-reverse;
+        padding: 5%;
+
+    }
+
+    .mostrar_texto{
+        width: auto;
+    }
+    
+    .footer{
+        width: auto;
+    }
+}
