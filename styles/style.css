@@ -202,12 +202,12 @@ textarea {
     box-sizing: border-box;
 }
 
-/* Botón para copiar el texto de salida */
+/* Botón para copiar el texto */
 #botonCopiarTexto {
     position: absolute;
-    right: 40px;
-    top: 885px;
-    width: 336px;
+    right: 50px;
+    top: 1000px;
+    width: 350px;
     height: 67px;
     font-size: 16px;
 }

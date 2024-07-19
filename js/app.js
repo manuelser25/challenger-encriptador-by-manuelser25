@@ -1,96 +1,97 @@
-//Definen las Constantes del Proyecto
-const ingresarTexto = document.getElementById('ingresar__texto');
-const botonEncriptar = document.getElementById('boton__encriptar');
-const botonDesencriptar = document.getElementById('boton__desencriptar');
-const inputResultado = document.getElementById('mensaje-texto');
-const botonCopiar = document.getElementById('boton__copiar');
-const soloLetras ='^[a-z !ñ]+$';
+//Capturar los elementos del DOM
+const textoEntrada = document.getElementById('texto_entrada');
+const textoSalida = document.getElementById('texto_encriptado');
+const botonEncriptar = document.getElementById('boton_encriptar');
+const botonDesencriptar = document.getElementById('boton_desencriptar');
+const botonCopiar = document.getElementById('botonCopiarTexto');
+const textoResultado = document.getElementById('textoResultado');
 
-//Captura para Ejecutar Acción de los Botones
-document.addEventListener('DOMContentLoaded', () => {
-  botonEncriptar.addEventListener('click', encriptarTexto);
-  botonDesencriptar.addEventListener('click', desencriptarTexto);
-  botonCopiar.addEventListener('click', copiarTexto);
+// Reglas de encriptación
+const llavesEncriptacion = {
+  'e': 'enter',
+  'i': 'imes',
+  'a': 'ai',
+  'o': 'ober',
+  'u': 'ufat'
+};
+
+// Habilitar o deshabilitar los botones cuando el text tenga texto
+function habilitarBotones() {
+  const conTexto = textoEntrada.value.trim().length > 0;
+  botonEncriptar.disabled = !conTexto;
+  botonDesencriptar.disabled = !conTexto;
+  botonEncriptar.classList.toggle('apagado', !conTexto);
+  botonDesencriptar.classList.toggle('apagado', !conTexto);
+}
+// Eventos que escucha el ingreso de texto
+textoEntrada.addEventListener('input', habilitarBotones);
+
+// Función para validar que el texto solo contenga minúsculas y espacios
+function validarEntrada(texto) {
+  return /^[a-z\s]*$/.test(texto);
+}
+
+// Función para verificar si hay mayúsculas o caracteres especiales
+function tieneMayusculas(texto) {
+  return /[A-Z]/.test(texto) || /[^a-zA-Z\s]/.test(texto);
+}
+
+// Encriptar el texto
+function encriptar(texto) {
+  return texto.replace(/[eiaou]/g, letra => llavesEncriptacion[letra]);
+}
+
+// Desencriptar el texto
+function desencriptar(texto) {
+  let desencriptado = texto;
+  for (let [clave, valor] of Object.entries(clavesEncriptacion)) {
+      desencriptado = desencriptado.replaceAll(valor, clave);
+  }
+  return desencriptado;
+}
+
+// Mostrar el resultado en la interfaz
+function mostrarResultado(texto) {
+  textoResultado.style.display = 'none';
+  textoSalida.style.display = 'block';
+  botonCopiar.style.display = 'block';
+  textoSalida.value = texto;
+}
+
+// Eventos para el botón de encriptar
+botonEncriptar.addEventListener('click', () => {
+  const texto = textoEntrada.value;
+  if (validarEntrada(texto)) {
+      mostrarResultado(encriptar(texto));
+  } else {
+    if (tieneMayusculas(texto)) {
+        alert("El texto contiene mayúsculas o caracteres especiales. Solo se aceptan letras minúsculas y espacios.");
+    } else {
+        alert("Texto inválido. Solo se aceptan letras minúsculas y espacios.");
+    }
+ }
 });
 
-// Proceso de Encriptamiento
-// function encriptarTexto(e) {
-//   e.preventDefault();
-//   inputResultado.value = '';
-//   let texto = inputTexto.value;
-  
-//   if(texto.match(soloLetras)!=null){
-//     let palabras = texto.split(' ');
-//     let nuevasPalabras = [];
-    
-//     for (let palabra of palabras) {
-//         palabra = palabra.replaceAll('a','ai');
-//         palabra = palabra.replaceAll('e','enter');
-//         palabra = palabra.replaceAll('i','imes');
-//         palabra = palabra.replaceAll('o','ober');
-//         palabra = palabra.replaceAll('u','ufat');      
-//         nuevasPalabras.push(palabra);    
-//     }
+// Eventos para el botón de desencriptar
+botonDesencriptar.addEventListener('click', () => {
+  const texto = textoEntrada.value;
+  if (validarEntrada(texto)) {
+      mostrarResultado(desencriptar(texto));
+  } else {
+      if (tieneMayusculas(texto)) {
+          alert("El texto contiene mayúsculas o caracteres especiales. Solo se aceptan letras minúsculas y espacios.");
+      } else {
+          alert("Texto inválido. Solo se aceptan letras minúsculas y espacios.");
+      }
+  }
+});
 
-//     const resultado = nuevasPalabras.join(' ');
-    
-//     inputResultado.value = resultado;
-//   } else {
-//     mostrarError('Solo se permiten letras minúsculas, sin acentos');
-//     return;
-//   }  
-// }
+// Eventos para el botón de copiar
+botonCopiar.addEventListener('click', () => {
+  textoSalida.select();
+  document.execCommand('copy');
+  alert('Texto copiado al portapapeles');
+});
 
-// // Proceso de Desencriptamiento
-// function desencriptarTexto(e) {
-//   e.preventDefault();  
-//   inputResultado.value = '';
-//   let texto = inputTexto.value;
-
-//   if(texto.match(soloLetras)!=null){
-//     let palabras = texto.split(" ");
-//     let nuevasPalabras = [];    
-
-//     for (let palabra of palabras) {
-//       palabra = palabra.replaceAll('enter','e');
-//       palabra = palabra.replaceAll('imes','i');
-//       palabra = palabra.replaceAll('ai','a');
-//       palabra = palabra.replaceAll('ober','o');
-//       palabra = palabra.replaceAll('ufat','u');
-//       nuevasPalabras.push(palabra);    
-//     }
-
-//     const resultado = nuevasPalabras.join(' ');
-    
-//     inputResultado.value = resultado;
-//   } else {
-//     mostrarError('Solo se permiten letras minúsculas, sin acentos');
-//     return;
-//   }  
-// }
-
-//Mensaje de Error por Posible Fallo
-// function mostrarError(mensaje) {
-//   const existeError = document.querySelector('.error');
-  
-//   if(!existeError) {
-//       const formulario = document.getElementById('formulario');
-//       const divMensaje = document.createElement('div');
-//       divMensaje.classList.add('error');
-  
-//       divMensaje.textContent = mensaje;            
-//       formulario.appendChild(divMensaje);
-      
-//       setTimeout(()=> {
-//           divMensaje.remove();
-//       }, 3000);
-//   }
-// }
-
-//Proceso de Copia de Texto
-// function copiarTexto(e) {
-//     e.preventDefault(); 
-//     const mensaje = inputResultado.value;
-
-//     navigator.clipboard.writeText(mensaje);
-// }
+// Llamar a alternarBotones al cargar la página para establecer el estado inicial de los botones
+habilitarBotonesBotones();
