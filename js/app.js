@@ -44,7 +44,7 @@ function encriptar(texto) {
 // Desencriptar el texto
 function desencriptar(texto) {
   let desencriptado = texto;
-  for (let [clave, valor] of Object.entries(clavesEncriptacion)) {
+  for (let [clave, valor] of Object.entries(llavesEncriptacion)) {
       desencriptado = desencriptado.replaceAll(valor, clave);
   }
   return desencriptado;
@@ -94,4 +94,4 @@ botonCopiar.addEventListener('click', () => {
 });
 
 // Llamar a alternarBotones al cargar la página para establecer el estado inicial de los botones
-habilitarBotonesBotones();
+habilitarBotones();
