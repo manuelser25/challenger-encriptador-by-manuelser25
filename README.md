@@ -6,7 +6,7 @@
 # Descrpción.
 El proyecto Encriptador de texto permite cifrar palabras utilizando una técnica simple de encriptación que transforma un texto en otro. Esta diseñado con HTML, CSS y JavaScript. 
 
-<img src="./assets/Screen.png" align="center" height="400" width="850" />  
+<img src="./assets/Screen.png" height="400" width="850" />  
 
 
 # Requerimientos.
