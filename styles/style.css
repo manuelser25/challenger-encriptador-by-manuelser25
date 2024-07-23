@@ -53,13 +53,11 @@ textarea {
     margin-bottom: 1rem;
     font-size: 2rem;     
 }
-
 #texto_entrada::placeholder {
     color: var(--color-primario);
     font-size: 32px;
     font-weight: regular;
 }
-
 .mensaje_usuario{
     display: flex;
     align-items: center;
@@ -98,7 +96,6 @@ textarea {
     padding: 10px 20px;
     margin: 5px;
 }
-
 .boton_deshabilitado {
     padding: 0rem 1rem;
     border: none;
@@ -114,7 +111,6 @@ textarea {
     opacity: 0.5;
     cursor: not-allowed;
 } 
-
 /* Efecto hover solo para botones habilitados */
 .boton_deshabilitado:not(.apagado):hover {
     background-color: var(--color-primario);
@@ -125,9 +121,8 @@ textarea {
 .boton_deshabilitado:not(.apagado):active {
     transform: scale(0.95);
 } 
-
 /* Estilos para el contenedor de resultados */
- #textoResultado {
+#textoResultado {
     background-color: var(--color-secundario);;
     border-radius: 24px;
     text-align: center;
@@ -138,7 +133,6 @@ textarea {
     width: 400px;
     height: 724px;
 } 
-
 /* Estilos para la imagen del muñeco */
 #imagenMuneco {
     position: absolute;
@@ -147,7 +141,6 @@ textarea {
     width: 336px;
     height: 304px;
 } 
-
 /* Estilos para el texto de "no mensaje" */
 #textoSinEncriptar {
     font-size: 2rem;
@@ -167,12 +160,10 @@ textarea {
     width: 336px;
     height: 48px; 
 } 
-
 /* Ocultar inicialmente el área de texto de salida y el botón de copiar */
 #texto_encriptado, #botonCopiarTexto {
     display: none;
 }
-
 /* Área de texto de salida */
 #texto_encriptado {
     font-size: 24px;
@@ -182,7 +173,6 @@ textarea {
     height: 100%;
     box-sizing: border-box;
 } 
-
 /* Botón para copiar el texto */
 #botonCopiarTexto {
     position: absolute;
@@ -202,7 +192,6 @@ textarea {
     background-color: var(--color-botones);
     color: var(--color-primario); 
 } 
-
 footer {
     position: relative;
     top: 150px;
@@ -212,9 +201,7 @@ footer {
     background-color: var(--color-terciario);
 
 }
-
 @media (max-width: 1210px){
-    
     .logo{
         left: 10px;
         top: 10px;
