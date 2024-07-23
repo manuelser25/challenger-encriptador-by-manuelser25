@@ -11,20 +11,17 @@
     --fuente-Inter: 'Inter', sans-serif;
 }
 body{
-    box-sizing: border-box;
     background-color: var(--color-secundario);
     font-family: var(--fuente-Inter);
-    width: 1800px;
-    height: 1024px;
-    position: absolute;
-    top: 0;
-    left: 0;
+}
+.flex-contenedor {
+    padding: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    margin: auto;
+    justify-content:center;
 }
 /*Logo*/
-header{
-    text-align: left;
-    margin-bottom: 2rem;
-}
 .logo{
     position: absolute;
     left: 40px;
@@ -32,46 +29,31 @@ header{
     width: 120px;
     height: 48px;
 }
-
-main{
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-}
 .ingresar_texto{
-    position: absolute;
-    left: 240px;
-    top: 168px;
+    position: relative;
+    top: 80px;
+    left: 40;
+    width: 690px;
+    height: 648px;
+} 
+.mostrar_texto{ 
+    position: relative;
+    top: 80px;
+    left: 40;
     width: 577px;
-    height: 48px;
-}
-.mostrar_texto{
-    position: absolute;
-    right: 40px;
-    top: 40px;
-    width: 400px;
-    height: 944px;  
-}
-
+    height: 648px;  
+} 
 textarea {
     width: 90%;
-    height: 700px;
+    height: 500px;
     padding: 1rem;
     border: none;
     border-radius: 48px;
     background-color: transparent;
-    resize: none;
     margin-bottom: 1rem;
     font-size: 2rem;     
 }
-#texto_entrada{
-    position: absolute;
-    left: 240px;
-    top: 168px;
-    width: 680px;
-    height: 288px;
-    font-size: 32px;
-}
+
 #texto_entrada::placeholder {
     color: var(--color-primario);
     font-size: 32px;
@@ -88,26 +70,26 @@ textarea {
     height: 16px;
     margin-right: 8px;
     position: absolute;
-    left: 250px;
-    top: 862px;
-}
+    left: 0px;
+    top: 560px;
+} 
 .mensaje_usuario p {
     position: absolute;
-    left: 280px;
-    top: 851px;
+    left: 20px;
+    top: 550px;
     width: 500px;
     height: 18px;
     font-size: 12px;
     color: var(--color-cuaternario);
-}
+} 
 .botones {
     position: absolute;
-    left: 240px;
-    top: 885px;
-    width: 680px;
+    left: 0px;
+    top: 580px;
+    width: 640px;
     height: 67px;
     display: flex;
-    justify-content: space-between;
+    justify-content:left;
     gap: 1rem;
 }
 #boton_encriptar, #boton_desencriptar {
@@ -131,40 +113,40 @@ textarea {
 .boton_deshabilitado.apagado {
     opacity: 0.5;
     cursor: not-allowed;
-}
+} 
 
 /* Efecto hover solo para botones habilitados */
 .boton_deshabilitado:not(.apagado):hover {
     background-color: var(--color-primario);
     color: var(--color-botones); 
     transform: scale(1.17);    
-}
+} 
 /* Efecto al hacer clic solo para botones habilitados */
 .boton_deshabilitado:not(.apagado):active {
     transform: scale(0.95);
-}
+} 
 
 /* Estilos para el contenedor de resultados */
-#textoResultado {
+ #textoResultado {
     background-color: var(--color-secundario);;
     border-radius: 24px;
     text-align: center;
     box-shadow: 24px 4px 8px rgba(0, 0, 0, 0.1);
     position: absolute;
     right: 40px;
-    top: 40px;
+    top: 0px;
     width: 400px;
-    height: 944px;
-}
+    height: 724px;
+} 
 
 /* Estilos para la imagen del muñeco */
 #imagenMuneco {
     position: absolute;
     right: 40px;
-    top: 283px;
+    top: 113px;
     width: 336px;
     height: 304px;
-}
+} 
 
 /* Estilos para el texto de "no mensaje" */
 #textoSinEncriptar {
@@ -172,23 +154,22 @@ textarea {
     font-weight: bold;
     position: absolute;
     right: 40px;
-    top: 619px;
+    top: 419px;
     width: 336px;
     height: 122px;
-}
-
+} 
 /* Estilos para el texto de instrucción */
 #instruccionesUsuario {  
     color: var(--color-cuaternario);
     position: absolute;
     right: 40px;
-    top: 800px;
+    top: 520px;
     width: 336px;
     height: 48px; 
-}
+} 
 
 /* Ocultar inicialmente el área de texto de salida y el botón de copiar */
- #texto_encriptado, #botonCopiarTexto {
+#texto_encriptado, #botonCopiarTexto {
     display: none;
 }
 
@@ -200,15 +181,15 @@ textarea {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-}
+} 
 
 /* Botón para copiar el texto */
 #botonCopiarTexto {
     position: absolute;
     right: 50px;
-    top: 1000px;
+    top: 580px;
     width: 350px;
-    height: 67px;
+    height: 58px;
     font-size: 16px;
     padding: 0rem 1rem;
     border: none;
@@ -220,29 +201,135 @@ textarea {
     flex: 1%;
     background-color: var(--color-botones);
     color: var(--color-primario); 
-}
+} 
 
-/*Pie de pagina*/
 footer {
-    position: absolute;
+    position: relative;
+    top: 150px;
     left: 0px;
-    top: 1150px;
-    width: 1780px;
     text-align: center;
     padding: .07rem;
-    background-color:var(--color-terciario);
-    color: var(--color-secundario);
+    background-color: var(--color-terciario);
+
 }
 
-@media (max-width: 1200px) {
-
-    .header{
-        padding: 5% 2%;  
+@media (max-width: 1210px){
+    
+    .logo{
+        left: 10px;
+        top: 10px;
+    }
+    textarea{
+        width: auto;
+    }
+    .botones {
+        display: flex;
+        justify-content: center;
+        top: 330px;
+    }
+    #imagenMuneco{
+        visibility: hidden;
+    }
+    #texto_entrada{
+        width: 90%;
+        height: 200px;
+    }
+    #textoResultado {
+        width: 630px;
+        height: 200px;
+        right: 10px;
     }
     .ingresar_texto{
+        height: 400px;
+    }
+    .mostrar_texto{
+        height: 200px;
+    }
+    .icono_exc{
+        top: 310px;
+    } 
+    .mensaje_usuario p{
+        top:300px;
+    }
+    #textoSinEncriptar {
+        width: 90%;
+        top:10px;
+        font-size: 24px;
+    }     
+    #instruccionesUsuario{
+        top:50%;
+        left: 30px;
+        font-size: 16px;
+        width: 90%;
+    } 
+    #botonCopiarTexto {
+        width: 90%;
+        height: 20%;
+        top: 210px;
+        left: 10px;
+    }    
+}
+@media (max-width: 768px){
+    .botones {
+        width: 90%;
+    }
+    #imagenMuneco{
+        visibility: hidden;
+    }
+    textarea{
         width: auto;
     }
-    .footer{
-        width: auto;
+    #texto_entrada{
+        width: 90%;
+        height: 200px;
+    }
+    #textoResultado {
+        width: 90%;
+        height: 200px;
+        right: 25px;
+    }
+    #textoSinEncriptar {
+        width: 90%;
+        top:10px;
+        font-size: 24px;
+    }     
+    #instruccionesUsuario{
+        font-size: 16px;
+    }
+    #botonCopiarTexto {
+        width: 90%;
+        height: 20%;
+        top: 210px;
+        left: 10px;
     }
 }
+@media (max-width: 375px){
+    .botones {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    textarea {
+        width: 90%;
+        height: 100%;
+    }
+    #textoResultado {
+        top: 50px;
+    }
+    .mostrar_texto{
+        top:130px;
+    }
+    #textoSinEncriptar {
+        left: 5%;
+    }
+    #botonCopiarTexto {
+        width: 90%;
+        height: 20%;
+        top: 210px;
+        left: 10px;
+    }
+    footer {
+        top: 170px;
+    }
+} 
